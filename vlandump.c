@@ -52,11 +52,6 @@ typedef struct {
 #define ET_VLAN 0x0081
 #define SIZE_ETHERNET sizeof(header_ethernet_t)
 
-typedef struct {
-    count_t count;
-    count_t id;
-} vlan_entry_t;
-
 
 ///////////////////////////// global vars
 
@@ -102,13 +97,10 @@ void got_packet(u_char *args, const struct pcap_pkthdr *header, const u_char *p)
 
 static int compare_counts(const void *c1, const void *c2)
 {
-    const vlan_entry_t *e1 = (vlan_entry_t*) c1;
-    const vlan_entry_t *e2 = (vlan_entry_t*) c2;
-
     if(reverse_order) {
-        return (e1->count - e2->count)*-1;
+        return (*((count_t *) c1) - *((count_t *) c2)) *-1;
     } else {
-        return e1->count - e2->count;
+        return *((count_t *) c1) - *((count_t *) c2);
     }
 }
 
