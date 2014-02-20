@@ -1,6 +1,6 @@
 /* 
 Small utility for capturing network traffic and listing found VLAN-ids.
-Copyright (C) 2009, Pascal Mainini
+Copyright (C) 2009, Pascal Mainini <http://mainini.ch>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
